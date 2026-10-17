@@ -42,18 +42,18 @@ export const Logo: React.FC<LogoProps> = ({
   if (variant === 'badge') {
     return (
       <div className={`flex flex-col items-center text-center ${className}`}>
-        <div className={`${iconDimensions} relative rounded-2xl overflow-hidden shadow-2xl border border-amber-500/40 p-0.5 bg-slate-950 mb-2.5`}>
+        <div className={`${iconDimensions} relative rounded-2xl overflow-hidden shadow-2xl border border-amber-500/40 p-0.5 bg-black mb-2.5`}>
           <Image
             src={customLogoUrl}
-            alt="Ali Baba Fast Food Emblem"
+            alt="New Ali Baba Fast Food Emblem"
             width={120}
             height={120}
-            className="w-full h-full object-cover rounded-xl"
+            className="w-full h-full object-contain rounded-xl"
             priority
           />
         </div>
         <span className={`${titleSizes} tracking-tight text-white flex items-center gap-1.5 leading-none uppercase`}>
-          ALI BABA <span className="text-amber-500">FAST FOOD</span>
+          NEW ALI BABA <span className="text-amber-500">FAST FOOD</span>
         </span>
         {showSlogan && (
           <span className={`${sloganSizes} text-amber-400 font-bold tracking-wider mt-1.5 uppercase font-sans`}>
@@ -68,13 +68,13 @@ export const Logo: React.FC<LogoProps> = ({
     <div className={`flex items-center gap-3 group ${className}`}>
       {/* Official Emblem */}
       <div className={`${iconDimensions} rounded-xl p-0.5 bg-gradient-to-tr from-amber-500 via-amber-400 to-amber-600 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform flex-shrink-0 relative overflow-hidden`}>
-        <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center overflow-hidden">
+        <div className="w-full h-full bg-black rounded-[10px] flex items-center justify-center overflow-hidden">
           <Image
             src={customLogoUrl}
-            alt="Ali Baba Fast Food Emblem"
+            alt="New Ali Baba Fast Food Emblem"
             width={80}
             height={80}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             priority
           />
         </div>
@@ -83,7 +83,7 @@ export const Logo: React.FC<LogoProps> = ({
       {/* Brand Name & Slogan */}
       <div>
         <span className={`${titleSizes} tracking-tight text-white flex items-center gap-1.5 leading-none uppercase`}>
-          ALI BABA <span className="text-amber-500">FAST FOOD</span>
+          NEW ALI BABA <span className="text-amber-500">FAST FOOD</span>
         </span>
         {showSlogan && (
           <span className={`${sloganSizes} block text-amber-400 font-bold tracking-wide mt-1 uppercase font-sans`}>

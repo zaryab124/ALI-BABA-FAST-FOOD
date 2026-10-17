@@ -118,20 +118,25 @@ export default function UrduProposalPage() {
         
         {/* Cover / Document Header */}
         <section className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 space-y-6 shadow-2xl print:border-none print:shadow-none print:bg-white print:p-0">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-6 print:border-black">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold mb-3 print:hidden">
-                <Sparkles className="w-3.5 h-3.5" /> کمرشل کاروباری پیشکش (Commercial Proposal)
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 border-b border-slate-800 pb-6 print:border-black">
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-black rounded-2xl overflow-hidden border-2 border-amber-500/50 p-1 flex-shrink-0 shadow-lg shadow-amber-500/20">
+                <img src="/images/alibaba-logo.png" alt="New Ali Baba Fast Food" className="w-full h-full object-contain" />
               </div>
-              <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight print:text-black">
-                علی بابا فاسٹ فوڈ (Ali Baba Fast Food)
-              </h1>
-              <p className="text-amber-500 font-extrabold text-sm sm:text-base mt-1 tracking-wider print:text-black">
-                مکمل ڈیجیٹل سسٹم و سورس کوڈ کی باقاعدہ فروخت اور تاحیات معاہدہ
-              </p>
-              <p className="text-xs text-slate-400 mt-1 print:text-gray-600">
-                لاہور برانچ • ریئل ٹائم کسٹمر آرڈرنگ، کچن ڈسپلے (KDS)، رائیڈر ڈسپیچ اور ایگزیکٹو آڈٹ روزنامچہ
-              </p>
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold mb-2 print:hidden">
+                  <Sparkles className="w-3.5 h-3.5" /> کمرشل کاروباری پیشکش (Commercial Proposal)
+                </div>
+                <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight print:text-black">
+                  نیو علی بابا فاسٹ فوڈ (New Ali Baba Fast Food)
+                </h1>
+                <p className="text-amber-500 font-extrabold text-sm sm:text-base mt-0.5 tracking-wider print:text-black">
+                  “Let&apos;s Hungry Reload” • لاہور برانچ
+                </p>
+                <p className="text-xs text-slate-400 mt-1 print:text-gray-600">
+                  ریئل ٹائم کسٹمر آرڈرنگ، کچن ڈسپلے (KDS)، رائیڈر ڈسپیچ اور ایگزیکٹو آڈٹ روزنامچہ
+                </p>
+              </div>
             </div>
 
             <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-right print:bg-gray-100 print:border-gray-300 min-w-[200px]">

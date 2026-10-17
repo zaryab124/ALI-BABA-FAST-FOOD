@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کمرشل پروپوزل — علی بابا فاسٹ فوڈ ڈیجیٹل سسٹم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #d97706;
+      --primary-dark: #b45309;
+      --primary-light: #fef3c7;
+      --secondary: #0f172a;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Nastaliq Urdu', 'Urdu Typesetting', 'Segoe UI', Tahoma, Arial, sans-serif;
+      color: var(--slate-800);
+      background-color: #f1f5f9;
+      line-height: 2.2;
+      font-size: 14px;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .no-print {
+      display: block;
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff;
+        font-size: 12.5px;
+        line-height: 2.0;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .proposal-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-family: 'Plus Jakarta Sans', 'Noto Nastaliq Urdu', sans-serif;
+    }
+
+    .btn {
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #f59e0b;
+      color: #0f172a;
+    }
+    .btn-primary:hover {
+      background: #d97706;
+    }
+
+    .btn-secondary {
+      background: #334155;
+      color: #f8fafc;
+    }
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .proposal-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+    }
+
+    .header-box {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 25px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .brand-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+
+    .brand-tagline {
+      font-size: 16px;
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      direction: ltr;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .badge-amber {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+    .badge-emerald {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+
+    .meta-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      padding: 15px 20px;
+      min-width: 240px;
+      text-align: right;
+    }
+    .meta-label {
+      font-size: 11px;
+      color: var(--slate-600);
+      display: block;
+    }
+    .meta-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--slate-900);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    h2.section-heading {
+      font-size: 22px;
+      color: #0f172a;
+      border-right: 4px solid var(--primary);
+      padding-right: 12px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    p.lead-text {
+      font-size: 15px;
+      color: #334155;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-cols: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-card p {
+      font-size: 13px;
+      color: #475569;
+      line-height: 2.0;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 13px;
+    }
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--slate-200);
+      padding: 12px 14px;
+      text-align: right;
+    }
+    table.data-table th {
+      background: var(--slate-100);
+      color: var(--slate-900);
+      font-weight: 700;
+    }
+    table.data-table tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .account-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .account-role {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 15px;
+    }
+    .account-meta {
+      font-family: 'Plus Jakarta Sans', monospace;
+      direction: ltr;
+      font-size: 13px;
+      color: #334155;
+    }
+    .account-desc {
+      font-size: 12.5px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .terms-box {
+      background: #fffbeb;
+      border: 2px dashed #f59e0b;
+      border-radius: 16px;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid var(--slate-200);
+    }
+    .signature-line {
+      border-bottom: 1.5px dashed var(--slate-400);
+      height: 60px;
+      margin-bottom: 12px;
+    }
+
+    .highlight-stat {
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+    .stat-pill {
+      flex: 1;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: block;
+    }
+    .stat-title {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar (Print / PDF) -->
+  <div class="top-bar no-print">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="font-weight: 800; font-size: 16px; color: #f59e0b;">ALI BABA FAST FOOD</span>
+      <span style="font-size: 12px; color: #94a3b8;">| کمرشل پرپوزل دستاویز (اردو)</span>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="window.print()" class="btn btn-primary">
+        🖨️ پرنٹ یا پی ڈی ایف محفوظ کریں (Print / Save PDF)
+      </button>
+      <a href="/" class="btn btn-secondary">
+        🌐 آن لائن ویب پورٹل
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- Proposal Document Card -->
+    <div class="proposal-card">
+      
+      <!-- Header -->
+      <div class="header-box">
+        <div>
+          <span class="badge badge-amber" style="margin-bottom: 8px;">باقاعدہ کاروباری و تجارتی پیشکش (Commercial Proposal)</span>
+          <h1 class="brand-title">علی بابا فاسٹ فوڈ (Ali Baba Fast Food)</h1>
+          <div class="brand-tagline">“Let's Hungry Reload” • لاہور برانچ</div>
+          <p style="font-size: 13px; color: #475569; margin-top: 6px;">
+            مقام: لاہور، پاکستان • آرڈر اور ڈلیوری ہاٹ لائن: <strong>0320-4649460</strong>
+          </p>
+        </div>
+        <div class="meta-box">
+          <span class="meta-label">ریفرنس نمبر:</span>
+          <span class="meta-value">EXP-ALIBABA-2026-URD</span>
+          <span class="meta-label" style="margin-top: 8px;">تاریخ پیشکش:</span>
+          <span class="meta-value">18 اکتوبر 2026</span>
+          <span class="badge badge-emerald" style="margin-top: 10px; display: inline-block;">حوالگی کے لیے 100% تیار</span>
+        </div>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="highlight-stat">
+        <div class="stat-pill">
+          <span class="stat-number">0%</span>
+          <span class="stat-title">کمیشن فیس (بغیر کسی کٹوتی)</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-number">100%</span>
+          <span class="stat-title">مکمل سورس کوڈ و ڈیٹا ملکیت</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-number">Free</span>
+          <span class="stat-title">تاحیات مفت مینٹیننس و سپورٹ</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-number">.com / .pk</span>
+          <span class="stat-title">مفت ذاتی برانڈ ڈومین و SSL</span>
+        </div>
+      </div>
+
+      <!-- Section 1: Executive Summary -->
+      <section style="margin-bottom: 30px;">
+        <h2 class="section-heading">۱. ایگزیکٹو سمری اور آپ کے کاروبار کے لیے اس کی قدر (Value Proposition)</h2>
+        <p class="lead-text">
+          یہ کمرشل پروپوزل <strong>علی بابا فاسٹ فوڈ (لاہور)</strong> کے لیے خصوصی طور پر تیار کردہ مکمل کسٹم ڈیجیٹل آرڈرنگ اور ریستوران مینجمنٹ پلیٹ فارم کے دائمی حقوق اور مکمل سورس کوڈ خریدنے کی باقاعدہ پیشکش ہے۔
+        </p>
+        <p class="lead-text">
+          آج کے دور میں فوڈ پانڈا اور دیگر تھرڈ پارٹی ایپس ریستوران کے ہر آرڈر پر <strong>30 فیصد سے 35 فیصد تک بھاری کمیشن</strong> کاٹ لیتے ہیں اور کسٹمرز کا ڈیٹا بھی آپ کو نہیں دیتے۔ یہ سسٹم آپ کو تیسرے فریق کی محتاجی سے ہمیشہ کے لیے آزاد کر دیتا ہے اور آپ کے تمام ریونیو کو 100 فیصد محفوظ بناتا ہے۔
+        </p>
+
+        <div class="grid-2">
+          <div class="feature-card">
+            <h3>🛡️ کسٹمرز کے ڈیٹا پر آپ کا مکمل کنٹرول</h3>
+            <p>آپ کے تمام گاہکوں کے فون نمبر، گھر کے پتے اور آرڈر ہسٹری آپ کے پاس محفوظ رہیں گے جنہیں آپ براہ راست مارکیٹنگ، ڈسکاؤنٹس اور ڈلیوری کے لیے استعمال کر سکتے ہیں۔</p>
+          </div>
+          <div class="feature-card">
+            <h3>⚡ کچن اور ڈلیوری کی خودکار رفتار</h3>
+            <p>گاہک کے ٹیبل پر بیٹھ کر کیو آر اسکین کرنے یا آن لائن آرڈر کرنے پر آرڈر سیدھا کچن اسکرین (KDS) اور رائیڈر کے پاس بغیر کسی انسانی غلطی کے خود بخود پہنچ جاتا ہے۔</p>
+          </div>
+          <div class="feature-card">
+            <h3>📊 ریجیکٹ شدہ آرڈرز اور سیلز کا درست حساب</h3>
+            <p>سسٹم کی خاص بات یہ ہے کہ جو آرڈر مسترد (Reject) ہو جائے، وہ کبھی بھی کامیاب سیلز میں شامل نہیں ہوتا۔ اکاؤنٹنٹ اور مالک کے لیے مکمل شفاف اور آڈٹ پروف روزنامچہ۔</p>
+          </div>
+          <div class="feature-card">
+            <h3>📱 واٹس ایپ نوٹیفکیشن اور سلپس</h3>
+            <p>آرڈر تیار ہوتے ہی رائیڈر ایک کلک سے گاہک کو کسٹمائزڈ واٹس ایپ ڈسپیچ سلپ بھیج سکتا ہے جس سے برانڈ پر اعتماد بڑھتا ہے۔</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Complete Menu Integration -->
+      <section style="margin-bottom: 30px;">
+        <h2 class="section-heading">۲. علی بابا فاسٹ فوڈ مینو کی مکمل انضمام کاری (Menu Integration)</h2>
+        <p class="lead-text">
+          آپ کے فراہم کردہ اصل پرنٹ شدہ مینو کارڈز کے مطابق تمام ۱۳ کیٹیگریز اور ۶۵ سے زائد لذیذ آئٹمز اور ڈیلز کی درست قیمتوں کے ساتھ ڈیٹا بیس میں فیڈ کر دی گئی ہیں:
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>کیٹیگری</th>
+              <th>نمایاں آئٹمز اور ڈیلز</th>
+              <th>قیمتیں (روپے)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>سپائسی عریبین بروسٹ (Arabian Broast)</strong></td>
+              <td>کوارٹر بروسٹ، ہاف بروسٹ، فل بروسٹ، انجیکٹڈ نگٹس اور ہاٹ ونگز</td>
+              <td>Rs. 380 تا Rs. 2400</td>
+            </tr>
+            <tr>
+              <td><strong>علی بابا او جی اور فیملی ڈیلز</strong></td>
+              <td>او جی کوارٹر ڈیل، او جی ڈبل اپ ڈیل، الٹیمیٹ فیملی فیسٹ اور فاسٹ فوڈ ڈیلز ۱ تا ۵</td>
+              <td>Rs. 520 تا Rs. 2550</td>
+            </tr>
+            <tr>
+              <td><strong>چارکول اسپیشل گرل برگرز</strong></td>
+              <td>چمیکسی، گرل تھرل، اے بی دی باس، بادشاہ گرل برگر، امیگو، سونک، پیزا برگر</td>
+              <td>Rs. 450 تا Rs. 750</td>
+            </tr>
+            <tr>
+              <td><strong>پریمیم پیزا اور کراؤن پیزا</strong></td>
+              <td>اے بی سگنیچر، فلی اسٹیک، ملائی بوٹی، لزانیا، کراؤن کرسٹ، کباب اور مغلئی سٹفر</td>
+              <td>Rs. 650 تا Rs. 2400</td>
+            </tr>
+            <tr>
+              <td><strong>شوارما، ریپس اور پراٹھا رولز</strong></td>
+              <td>عریبین شوارما، زنگر شوارما، ٹورٹیا ریپ، زنگر پراٹھا رول، بہاری کباب رول</td>
+              <td>Rs. 180 تا Rs. 550</td>
+            </tr>
+            <tr>
+              <td><strong>پاستا، سینڈوچ اور ایپیٹائزرز</strong></td>
+              <td>کریمی الفریڈو پاستا، کلب سینڈوچ، پیزا فرائز، گارلک سوس اور کولڈ ڈرنکس</td>
+              <td>Rs. 80 تا Rs. 850</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="page-break"></div>
+
+      <!-- Section 3: Portals, Testing Links & Passwords -->
+      <section style="margin-bottom: 30px;">
+        <h2 class="section-heading">۳. ٹیسٹنگ کے لیے تمام پورٹلز، یوزر نیم اور پاس ورڈز (Credentials)</h2>
+        <p class="lead-text">
+          آپ سسٹم کی مکمل کارکردگی خود چیک کر سکتے ہیں۔ ذیل میں ہر ذمہ دار فرد کے لیے مخصوص پورٹل کی تفصیل اور لاگ ان لاگ ان درج ہے:
+        </p>
+
+        <div style="background: #e0f2fe; border: 1px solid #7dd3fc; border-radius: 12px; padding: 12px 18px; margin-bottom: 16px;">
+          <strong style="color: #0369a1;">تمام ٹیسٹ اکاؤنٹس کا مشترکہ پاس ورڈ:</strong>
+          <span style="font-family: monospace; font-size: 15px; font-weight: bold; background: #ffffff; padding: 2px 8px; border-radius: 6px; margin-right: 8px; border: 1px solid #bae6fd;">okaykarubas12390</span>
+        </div>
+
+        <!-- Owner -->
+        <div class="account-card">
+          <div>
+            <div class="account-role">👑 ایگزیکٹو اونر پورٹل (Executive Owner Portal)</div>
+            <div class="account-desc">روزانہ، ہفتہ وار، ماہانہ سیلز کا آڈٹ، خالص منافع، مسترد شدہ آرڈرز اور پی ڈی ایف رپورٹ۔</div>
+          </div>
+          <div style="text-align: left;">
+            <div class="account-meta">owner@alibabafastfood.com</div>
+            <a href="/owner" class="badge badge-amber" style="text-decoration: none; margin-top: 4px;">/owner کھولیں</a>
+          </div>
+        </div>
+
+        <!-- Admin -->
+        <div class="account-card">
+          <div>
+            <div class="account-role">💼 برانچ مینیجر و پوائنٹ آف سیل (Store Admin / POS)</div>
+            <div class="account-desc">نئے آرڈرز کی تصدیق، ڈائن اِن، ٹیک اوے، ڈلیوری سروس کا سوئچ اور ٹیبل کیو آر پرنٹنگ۔</div>
+          </div>
+          <div style="text-align: left;">
+            <div class="account-meta">admin@alibabafastfood.com</div>
+            <a href="/admin" class="badge badge-amber" style="text-decoration: none; margin-top: 4px;">/admin کھولیں</a>
+          </div>
+        </div>
+
+        <!-- Kitchen -->
+        <div class="account-card">
+          <div>
+            <div class="account-role">👨‍🍳 کچن ڈسپلے سسٹم (Kitchen Display System - KDS)</div>
+            <div class="account-desc">باورچی خانے کے لیے لائیو آرڈر اسکرین، تیاری کے ٹائمرز، آئٹم چیک لسٹ اور آڈیو بیپ الرٹ۔</div>
+          </div>
+          <div style="text-align: left;">
+            <div class="account-meta">kitchen@alibabafastfood.com</div>
+            <a href="/kitchen" class="badge badge-amber" style="text-decoration: none; margin-top: 4px;">/kitchen کھولیں</a>
+          </div>
+        </div>
+
+        <!-- Rider -->
+        <div class="account-card">
+          <div>
+            <div class="account-role">🛵 ڈلیوری رائیڈر پورٹل (Delivery Rider Dispatch)</div>
+            <div class="account-desc">ڈلیوری کے لیے تیار کھانے کی فہرست، کسٹمر کا پتہ، نیویگیشن اور ون-کلک واٹس ایپ سلپ۔</div>
+          </div>
+          <div style="text-align: left;">
+            <div class="account-meta">rider@alibabafastfood.com</div>
+            <a href="/rider" class="badge badge-amber" style="text-decoration: none; margin-top: 4px;">/rider کھولیں</a>
+          </div>
+        </div>
+
+        <!-- Customer -->
+        <div class="account-card">
+          <div>
+            <div class="account-role">📲 کسٹمر آن لائن آرڈرنگ اور ٹیبل اسکین</div>
+            <div class="account-desc">موبائل اور لیپ ٹاپ پر پرنٹ شدہ مینو کارڈز دیکھنے، کارٹ میں ڈالنے اور کیش آن ڈلیوری آرڈر۔</div>
+          </div>
+          <div style="text-align: left;">
+            <div class="account-meta">ٹیبل 1 QR اسکین</div>
+            <a href="/table/qr-alibaba-table-01" class="badge badge-emerald" style="text-decoration: none; margin-top: 4px;">/table ٹیسٹ کریں</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Commercial Terms & Payment Milestones -->
+      <section style="margin-bottom: 25px;">
+        <h2 class="section-heading">۴. کاروباری شرائط، تاحیات سپورٹ اور ادائیگی کا طریقہ کار (Commercial Agreement)</h2>
+        
+        <div class="terms-box">
+          <h3 style="font-size: 17px; color: #92400e; margin-bottom: 12px; font-weight: 700;">
+            💎 25% ایڈوانس اور 75% پروجیکٹ کے مکمل قبضے پر حوالگی:
+          </h3>
+          <ul style="padding-right: 20px; font-size: 13.5px; color: #78350f; line-height: 2.2;">
+            <li><strong>مرحلہ ۱ (25% ایڈوانس بیعانہ):</strong> معاہدے پر دستخط، پروجیکٹ رجسٹریشن اور ڈومین سیٹ اپ کے آغاز پر ادا کیا جائے گا۔</li>
+            <li><strong>مرحلہ ۲ (75% حتمی ادائیگی):</strong> مکمل سسٹم کی آپ کی مرضی کے مطابق ٹیسٹنگ، برانڈ ڈومین پر لائیو کرنے، عملے کی ٹریننگ اور <strong>مکمل سورس کوڈ و ڈیٹا بیس کے حقوق حوالے کرنے (Taking Over Project)</strong> پر ادا کیا جائے گا۔</li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 20px;" class="grid-2">
+          <div class="feature-card" style="border-right: 4px solid var(--success);">
+            <h3>🔒 تاحیات مفت مینٹیننس (Lifetime Maintenance)</h3>
+            <p>سسٹم کی تکنیکی نگہداشت، کلاؤڈ سیکیورٹی، سرور اپ ٹائم اور کسی بھی قسم کے بگ یا خرابی کی تاحیات مفت وارنٹی اور سپورٹ شامل ہے۔ آپ سے کبھی بھی سالانہ یا ماہانہ مینٹیننس فیس وصول نہیں کی جائے گی۔</p>
+          </div>
+          <div class="feature-card" style="border-right: 4px solid var(--primary);">
+            <h3>🌐 ذاتی ڈومین اور مفت SSL سرٹیفکیٹ</h3>
+            <p>آپ کے پسندیدہ نام کی ذاتی آفیشل ویب ڈومین (جیسے alibabafastfood.com یا .pk) کی باقاعدہ کنفیگریشن اور لائف ٹائم سیکیور HTTPS کنکشن پیکیج کا حصہ ہے۔</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signatures -->
+      <div class="signature-grid">
+        <div>
+          <strong style="display: block; font-size: 14px; color: #0f172a;">سافٹ ویئر ڈویلپمنٹ اور انجینئرنگ ٹیم:</strong>
+          <div class="signature-line"></div>
+          <p style="font-size: 12px; color: #475569;">سافٹ ویئر آرکیٹیکٹ و انجینئرنگ لیڈ</p>
+          <p style="font-size: 11px; color: #94a3b8; font-family: 'Plus Jakarta Sans', sans-serif;">Ali Baba Fast Food Digital Platform</p>
+        </div>
+        <div>
+          <strong style="display: block; font-size: 14px; color: #0f172a;">علی بابا فاسٹ فوڈ (خریدار / مالک کی جانب سے):</strong>
+          <div class="signature-line"></div>
+          <p style="font-size: 12px; color: #475569;">مجاز مالک / ایگزیکٹو ڈائریکٹر</p>
+          <p style="font-size: 11px; color: #94a3b8; font-family: 'Plus Jakarta Sans', sans-serif;">علی بابا فاسٹ فوڈ، لاہور</p>
+        </div>
+      </div>
+
+      <!-- Footer Note -->
+      <div style="text-align: center; margin-top: 35px; padding-top: 15px; border-top: 1px solid #e2e8f0; font-size: 11.5px; color: #64748b;">
+        یہ دستاویز ایک مصدقہ بین الاقوامی معیار کی کمرشل پیشکش ہے جو علی بابا فاسٹ فوڈ لاہور کے جملہ حقوق کے تحفظ کو یقینی بناتی ہے۔
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

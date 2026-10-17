@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Commercial Software Proposal - OK Restaurant Multi-Branch Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #d97706;
+      --primary-dark: #b45309;
+      --primary-light: #fef3c7;
+      --secondary: #0f172a;
+      --accent: #2563eb;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--slate-800);
+      background-color: #f8fafc;
+      line-height: 1.55;
+      font-size: 13.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 50px 60px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--slate-200);
+    }
+
+    /* Print Optimizations */
+    @media print {
+      body {
+        background: #ffffff;
+        color: #000000;
+      }
+      .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 15mm 15mm 15mm 15mm;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+
+    /* Top Action Bar for Browser View */
+    .action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 14px 20px;
+      background: var(--slate-900);
+      border-radius: 12px;
+      color: #ffffff;
+    }
+    .action-bar h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fbbf24;
+    }
+    .btn-print {
+      background: #f59e0b;
+      color: #0f172a;
+      font-weight: 800;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-print:hover {
+      background: #d97706;
+    }
+
+    /* Document Header */
+    .header {
+      border-bottom: 2px solid var(--slate-900);
+      padding-bottom: 25px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .brand-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -0.5px;
+    }
+    .brand-subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+    .meta-box {
+      text-align: right;
+      font-size: 12px;
+      color: var(--slate-600);
+    }
+    .meta-box strong {
+      color: var(--slate-900);
+    }
+    .status-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 4px 10px;
+      background: var(--success-light);
+      color: var(--success);
+      font-weight: 800;
+      font-size: 11px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Section Typography */
+    h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--slate-900);
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+      margin: 32px 0 16px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    h3 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--slate-800);
+      margin: 18px 0 8px 0;
+    }
+    p {
+      margin-bottom: 12px;
+      color: var(--slate-700);
+    }
+
+    /* Value Proposition Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .card h4 {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card p {
+      font-size: 12px;
+      margin-bottom: 0;
+      color: var(--slate-600);
+    }
+
+    /* Enterprise Feature Highlights */
+    .feature-list {
+      list-style: none;
+      margin: 12px 0;
+    }
+    .feature-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 12.5px;
+      color: var(--slate-700);
+    }
+    .feature-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    /* Data Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px 0;
+      font-size: 12.5px;
+    }
+    table th, table td {
+      padding: 10px 12px;
+      text-align: left;
+      border: 1px solid var(--slate-200);
+    }
+    table th {
+      background: var(--slate-100);
+      font-weight: 800;
+      color: var(--slate-900);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+    table tr:nth-child(even) {
+      background: #fafafa;
+    }
+    .table-highlight {
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    /* Credentials & Links Styling */
+    .cred-badge {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--slate-100);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11.5px;
+      color: var(--slate-900);
+      font-weight: 600;
+    }
+    .link-badge {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-size: 11px;
+      word-break: break-all;
+    }
+
+    /* Commercial Milestones Callout */
+    .milestone-container {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .milestone-box {
+      flex: 1;
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid;
+    }
+    .milestone-box.advance {
+      background: #fffbeb;
+      border-color: #f59e0b;
+    }
+    .milestone-box.final {
+      background: #eff6ff;
+      border-color: #3b82f6;
+    }
+    .milestone-pct {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .milestone-box.advance .milestone-pct {
+      color: #b45309;
+    }
+    .milestone-box.final .milestone-pct {
+      color: #1d4ed8;
+    }
+    .milestone-title {
+      font-size: 14px;
+      font-weight: 800;
+      margin: 8px 0 4px 0;
+      color: var(--slate-900);
+    }
+    .milestone-desc {
+      font-size: 11.5px;
+      color: var(--slate-600);
+    }
+
+    /* Legal & Warranty Callout */
+    .callout-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--slate-900);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+    .callout-box h4 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 6px;
+    }
+    .callout-box p {
+      font-size: 12px;
+      margin: 0;
+      color: var(--slate-600);
+    }
+
+    /* Sign-off Blocks */
+    .signoff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid var(--slate-300);
+    }
+    .signature-line {
+      margin-top: 50px;
+      border-bottom: 1px dashed var(--slate-400);
+      width: 100%;
+    }
+    .sign-meta {
+      font-size: 11px;
+      color: var(--slate-500);
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Action Bar for Screen Viewing -->
+    <div class="action-bar no-print">
+      <div>
+        <h4>💼 INTERNATIONAL COMMERCIAL ACQUISITION PROPOSAL</h4>
+        <p style="font-size: 11px; color: #94a3b8; margin: 0;">Multi-Branch Restaurant Digital Ecosystem • Lifetime Turnkey Handover</p>
+      </div>
+      <button class="btn-print" onclick="window.print()">
+        🖨️ Export / Print as PDF
+      </button>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <h1 class="brand-title">OK RESTAURANT & FAST FOOD</h1>
+        <div class="brand-subtitle">Commercial Software Proposal & Technology Handover</div>
+        <p style="font-size: 12px; color: var(--slate-600); margin-top: 4px;">
+          Multi-Branch Enterprise Digital Ordering, Real-Time KDS, Dispatch & Financial Audit Platform
+        </p>
+      </div>
+      <div class="meta-box">
+        <div><strong>Proposal ID:</strong> EXP-OKREST-2026-INT</div>
+        <div><strong>Date:</strong> October 2026</div>
+        <div><strong>Standard:</strong> Enterprise Commercial Handover</div>
+        <div><span class="status-badge">Turnkey Ready • 100% Functional</span></div>
+      </div>
+    </div>
+
+    <!-- 1. Executive Summary & Business Value -->
+    <h2>1. Executive Summary & Business Value Proposition</h2>
+    <p>
+      This enterprise proposal presents the complete commercial acquisition and full source code handover of the 
+      <strong>OK Restaurant Multi-Branch Digital Platform</strong>. Architected for fast-casual, high-volume dining, 
+      buffet services, and delivery logistics, this turnkey solution eliminates reliance on expensive third-party aggregator portals 
+      (such as Foodpanda, UberEats, and Deliveroo) and gives your brand complete digital sovereignty.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h4>💰 0% Commission Fee</h4>
+        <p>Save 20% to 35% commission on every home delivery and takeaway order, adding tens of thousands of dollars directly to your bottom line.</p>
+      </div>
+      <div class="card">
+        <h4>⚡ 40% Faster Table Turns</h4>
+        <p>Self-ordering QR codes allow dine-in guests to scan, browse branch menus, and submit kitchen orders directly without waiting for waitstaff.</p>
+      </div>
+      <div class="card">
+        <h4>📈 Real-Time Multi-Branch</h4>
+        <p>Centrally monitor sales across Dera Chungi, Main Bypass Jampur, Kot Chuta, and any future branches from one master executive portal.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>🛡️ Zero Leakage Financial Auditing</h4>
+        <p>Every transaction, payment method (Cash on Delivery / Counter), delivery fee, and rejected/voided order is tracked in an automated daily and weekly ledger with PDF export.</p>
+      </div>
+      <div class="card">
+        <h4>📦 Total Technology Ownership</h4>
+        <p>Full transfer of Intellectual Property, complete source code repository, custom domain deployment, and lifetime maintenance warranty with zero recurring vendor royalties.</p>
+      </div>
+    </div>
+
+    <!-- 2. Core Portals & Ecosystem Modules -->
+    <h2>2. Platform Architecture & Operational Modules</h2>
+    <p>The ecosystem connects five dedicated portals in real time using Supabase PostgreSQL webhooks and stateful triggers:</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>📱 Customer Ordering & Buffet Portal</h4>
+        <ul class="feature-list">
+          <li>Dynamic branch selection with live distance computation</li>
+          <li>Instant Dine-in Table QR token auto-routing</li>
+          <li>Home Delivery with automatic per-kilometer delivery fee calculations</li>
+          <li>Open Buffet pass registration with digital verification QR ticket</li>
+          <li>Live customer order tracking with status updates and WhatsApp support</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>🏢 Branch Admin Operations Portal</h4>
+        <ul class="feature-list">
+          <li>Live POS order management & order status transition pipeline</li>
+          <li>Branch capability toggles (Dine-in, Takeaway, Delivery on/off)</li>
+          <li>Dynamic delivery zone builder & pricing rules per branch</li>
+          <li>One-click printable QR table standee cards for customer tables</li>
+          <li>Branch-specific menu inventory management and availability flags</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>👨‍🍳 Kitchen Display System (KDS)</h4>
+        <ul class="feature-list">
+          <li>Real-time bump bar with acoustic chime notifications on new orders</li>
+          <li>Itemized kitchen prep checklist with variant details & customer notes</li>
+          <li>Elapsed preparation timers with urgency color coding</li>
+          <li>Instant status dispatch (PENDING ➔ PREPARING ➔ READY)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>🛵 Rider & Delivery Dispatch Portal</h4>
+        <ul class="feature-list">
+          <li>Real-time ready delivery order queue</li>
+          <li>One-click WhatsApp customer dispatch slip generation</li>
+          <li>Direct Google Maps turn-by-turn navigation deep-links</li>
+          <li>Cash on Delivery collection tracking and rider delivery completion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 14px;">
+      <h4>👑 Executive Owner Financial & Audit Portal</h4>
+      <p style="margin-bottom: 8px;">
+        Designed exclusively for restaurant owners and general partners to maintain absolute fiscal control:
+      </p>
+      <ul class="feature-list">
+        <li>Multi-branch consolidated vs. branch-specific comparative revenue analytics</li>
+        <li>Hourly, 24-hour daily, 7-day weekly, monthly, and annual sales breakdowns</li>
+        <li>Audited separation of realized revenue vs. voided/rejected orders (prevents audit discrepancies)</li>
+        <li>One-click Executive Audit Report generation with certified printable PDF export</li>
+      </ul>
+    </div>
+
+    <!-- Page Break for Clean Printing -->
+    <div class="page-break"></div>
+
+    <!-- 3. Combined Testing Links & Credentials -->
+    <h2>3. Live Evaluation Links & Testing Credentials</h2>
+    <p>
+      The platform is currently live, deployed, and fully operational for testing and investor demonstration. 
+      Use the credentials below to test each role across different browser tabs or mobile devices:
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Portal Module</th>
+          <th>Live Testing Link</th>
+          <th>User Role</th>
+          <th>Login Email</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="table-highlight">Customer Portal</td>
+          <td><a href="https://ok-restuerent.vercel.app" class="link-badge" target="_blank">ok-restuerent.vercel.app</a></td>
+          <td>Customer</td>
+          <td><em>No login required</em></td>
+          <td><em>Open Access</em></td>
+        </tr>
+        <tr>
+          <td class="table-highlight">QR Table Ordering</td>
+          <td><a href="https://ok-restuerent.vercel.app/table/qr_dera_t01_sec789" class="link-badge" target="_blank">/table/qr_dera_t01_sec789</a></td>
+          <td>Dine-In Guest</td>
+          <td><em>Table 01 Direct Scan</em></td>
+          <td><em>Instant Order</em></td>
+        </tr>
+        <tr>
+          <td class="table-highlight">Open Buffet Booking</td>
+          <td><a href="https://ok-restuerent.vercel.app/buffet" class="link-badge" target="_blank">/buffet</a></td>
+          <td>Buffet Guest</td>
+          <td><em>Token Pass Booking</em></td>
+          <td><em>Pay Cash at Counter</em></td>
+        </tr>
+        <tr>
+          <td class="table-highlight">Executive Owner</td>
+          <td><a href="https://ok-restuerent.vercel.app/owner" class="link-badge" target="_blank">/owner</a></td>
+          <td><span class="cred-badge">OWNER</span></td>
+          <td><span class="cred-badge">owner@okrestaurant.com</span></td>
+          <td><span class="cred-badge">okaykarubas12390</span></td>
+        </tr>
+        <tr>
+          <td class="table-highlight">Dera Chungi Admin</td>
+          <td><a href="https://ok-restuerent.vercel.app/admin" class="link-badge" target="_blank">/admin</a></td>
+          <td><span class="cred-badge">BRANCH_ADMIN</span></td>
+          <td><span class="cred-badge">admin.dera@okrestaurant.com</span></td>
+          <td><span class="cred-badge">okaykarubas12390</span></td>
+        </tr>
+        <tr>
+          <td class="table-highlight">Main Bypass Admin</td>
+          <td><a href="https://ok-restuerent.vercel.app/admin" class="link-badge" target="_blank">/admin</a></td>
+          <td><span class="cred-badge">BRANCH_ADMIN</span></td>
+          <td><span class="cred-badge">admin.sherifalon@okrestaurant.com</span></td>
+          <td><span class="cred-badge">okaykarubas12390</span></td>
+        </tr>
+        <tr>
+          <td class="table-highlight">Kot Chuta Admin</td>
+          <td><a href="https://ok-restuerent.vercel.app/admin" class="link-badge" target="_blank">/admin</a></td>
+          <td><span class="cred-badge">BRANCH_ADMIN</span></td>
+          <td><span class="cred-badge">admin.kotchuta@okrestaurant.com</span></td>
+          <td><span class="cred-badge">okaykarubas12390</span></td>
+        </tr>
+        <tr>
+          <td class="table-highlight">Kitchen KDS</td>
+          <td><a href="https://ok-restuerent.vercel.app/kitchen" class="link-badge" target="_blank">/kitchen</a></td>
+          <td><span class="cred-badge">KITCHEN</span></td>
+          <td><span class="cred-badge">kitchen.dera@okrestaurant.com</span></td>
+          <td><span class="cred-badge">okaykarubas12390</span></td>
+        </tr>
+        <tr>
+          <td class="table-highlight">Rider Delivery</td>
+          <td><a href="https://ok-restuerent.vercel.app/rider" class="link-badge" target="_blank">/rider</a></td>
+          <td><span class="cred-badge">RIDER</span></td>
+          <td><span class="cred-badge">rider1.dera@okrestaurant.com</span></td>
+          <td><span class="cred-badge">okaykarubas12390</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. Step-by-Step App Usage Guidance -->
+    <h2>4. End-to-End Operational Guidance & Test Walkthrough</h2>
+    <p>To experience the full multi-portal workflow as a customer, kitchen chef, delivery rider, and owner:</p>
+
+    <div class="card" style="margin-bottom: 12px;">
+      <h4>Step A: Place a Customer Order (Dine-in / Delivery)</h4>
+      <p>1. Open <a href="https://ok-restuerent.vercel.app" class="link-badge">ok-restuerent.vercel.app</a> or click the <a href="https://ok-restuerent.vercel.app/table/qr_dera_t01_sec789" class="link-badge">Table 1 QR Link</a>.<br>
+         2. Select items (e.g., Mutton Karahi, Zinger Burger, Cold Drinks) and proceed to Checkout.<br>
+         3. Confirm with <strong>Cash on Delivery / Pay at Counter</strong>. Note down your Order ID (e.g., #OK-1002).</p>
+    </div>
+
+    <div class="card" style="margin-bottom: 12px;">
+      <h4>Step B: Admin Confirmation & Kitchen Real-Time Cook</h4>
+      <p>1. Open <a href="https://ok-restuerent.vercel.app/admin" class="link-badge">/admin</a> in a new window and confirm the incoming order.<br>
+         2. Open <a href="https://ok-restuerent.vercel.app/kitchen" class="link-badge">/kitchen</a> to see the order appear with an audio chime.<br>
+         3. Click <strong>"Start Preparing"</strong> and then <strong>"Mark as Ready"</strong> when food is prepared.</p>
+    </div>
+
+    <div class="card" style="margin-bottom: 12px;">
+      <h4>Step C: Rider Dispatch & Delivery Handover</h4>
+      <p>1. Open <a href="https://ok-restuerent.vercel.app/rider" class="link-badge">/rider</a>. The ready delivery order will be visible.<br>
+         2. Click <strong>"Share via WhatsApp"</strong> to auto-populate the customer delivery receipt slip.<br>
+         3. Click <strong>"Deliver Order"</strong> to record cash collected and close out the order.</p>
+    </div>
+
+    <div class="card">
+      <h4>Step D: Owner Sales Ledger & PDF Export</h4>
+      <p>1. Open <a href="https://ok-restuerent.vercel.app/owner" class="link-badge">/owner</a>.<br>
+         2. Observe that total sales, daily ledger, and hourly trends update instantly.<br>
+         3. Click <strong>"Export / Print Financial PDF"</strong> to view the certified high-contrast A4 executive audit statement.</p>
+    </div>
+
+    <!-- Page Break for Clean Printing -->
+    <div class="page-break"></div>
+
+    <!-- 5. Commercial Terms & Deliverables -->
+    <h2>5. Commercial Terms, Lifetime Maintenance & Handover</h2>
+    <p>
+      This proposal provides a complete, unrestricted commercial sale and technical handover with all-inclusive guarantees:
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>🌐 Personal Custom Domain Setup</h4>
+        <p>Complete deployment on your chosen branded domain (e.g., <code>order.yourrestaurant.com</code> or <code>www.yourbrand.com</code>) including SSL certificates, DNS orchestration, and business email integration.</p>
+      </div>
+
+      <div class="card">
+        <h4>🛡️ Lifetime Maintenance & Bug Warranty</h4>
+        <p>Unconditional guarantee: Any functional defects, performance regressions, or database errors in core workflows will be resolved with priority support at zero extra maintenance retainers.</p>
+      </div>
+
+      <div class="card">
+        <h4>🗄️ Dedicated Supabase Cloud Transfer</h4>
+        <p>Full transfer of the production Supabase PostgreSQL cloud database, row-level security (RLS) policies, atomic stored procedures, and encrypted user authentication storage.</p>
+      </div>
+
+      <div class="card">
+        <h4>💻 100% Source Code & IP Ownership</h4>
+        <p>Full GitHub repository ownership transfer (Next.js 14, Tailwind CSS, TypeScript) with full rights to modify, white-label, rebrand, or expand across unlimited international franchises.</p>
+      </div>
+    </div>
+
+    <!-- Commercial Payment Structure -->
+    <h2>6. Commercial Milestone Structure</h2>
+    <p>
+      To ensure absolute trust and transparency, the commercial acquisition is structured around a milestone-based handover:
+    </p>
+
+    <div class="milestone-container">
+      <div class="milestone-box advance">
+        <div class="milestone-pct">25%</div>
+        <div class="milestone-title">Advance Commitment Deposit</div>
+        <div class="milestone-desc">
+          Payable upon signing this agreement. Initiates brand tailoring (restaurant logo, menu item onboarding, branch coordinates), custom domain mapping, and staging environment initialization.
+        </div>
+      </div>
+
+      <div class="milestone-box final">
+        <div class="milestone-pct">75%</div>
+        <div class="milestone-title">Final Project Takeover Balance</div>
+        <div class="milestone-desc">
+          Payable only upon complete inspection, final live deployment on your custom domain, transfer of Supabase master database, handover of GitHub repository, and staff training completion.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box">
+      <h4>🔒 Buyer Protection Guarantee</h4>
+      <p>
+        The remaining 75% payment is strictly contingent upon your 100% satisfaction and verification that all features (Table QR Ordering, Admin POS, Kitchen KDS, Rider WhatsApp Dispatch, and Owner Financial Audits) are operating flawlessly on your live domain.
+      </p>
+    </div>
+
+    <!-- Sign-off & Acceptance -->
+    <h2>7. Acceptance & Authorization</h2>
+    <p>
+      By signing below, both parties agree to the commercial terms, 25/75 milestone payment schedule, and intellectual property transfer detailed in this document.
+    </p>
+
+    <div class="signoff-grid">
+      <div>
+        <strong>Prepared & Authorized By (Vendor):</strong>
+        <div class="signature-line"></div>
+        <div style="margin-top: 10px; font-weight: 700; color: var(--slate-900);">Lead Software Architect & Engineering Team</div>
+        <div class="sign-meta">OK Restaurant Multi-Branch Digital Platform</div>
+        <div class="sign-meta">Date: October 11, 2026</div>
+      </div>
+
+      <div>
+        <strong>Accepted & Agreed By (Client / Buyer):</strong>
+        <div class="signature-line"></div>
+        <div style="margin-top: 10px; font-weight: 700; color: var(--slate-900);">Authorized Representative / Executive Buyer</div>
+        <div class="sign-meta">Organization / Restaurant Brand: _______________________</div>
+        <div class="sign-meta">Date: ________________________</div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; font-size: 11px; color: var(--slate-500); border-top: 1px solid var(--slate-200); padding-top: 20px;">
+      OK Restaurant Platform • Confidential Commercial Proposal • Designed & Engineered for International Enterprise Hospitality
+    </div>
+
+  </div>
+
+</body>
+</html>

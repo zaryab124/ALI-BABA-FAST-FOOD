@@ -21,7 +21,7 @@ export default function KitchenLoginPage() {
 
     try {
       await AuthService.login(email, password, 'KITCHEN');
-      router.push('/kitchen');
+      window.location.href = '/kitchen';
     } catch (err: any) {
       const msg = typeof err === 'string' ? err : err?.message ? String(err.message) : 'Invalid login credentials';
       setError(msg === '{}' ? 'Invalid login credentials' : msg);

@@ -29,7 +29,7 @@ export default function CustomerLoginPage() {
       } else {
         await AuthService.login(email, password, 'CUSTOMER');
       }
-      router.push('/');
+      window.location.href = '/';
     } catch (err: any) {
       const msg = typeof err === 'string' ? err : err?.message ? String(err.message) : 'Authentication failed';
       setError(msg === '{}' ? 'Authentication failed' : msg);

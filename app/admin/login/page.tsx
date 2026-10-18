@@ -21,7 +21,7 @@ export default function AdminLoginPage() {
 
     try {
       await AuthService.login(email, password, 'BRANCH_ADMIN');
-      router.push('/admin');
+      window.location.href = '/admin';
     } catch (err: any) {
       const msg = typeof err === 'string' ? err : err?.message ? String(err.message) : 'Invalid login credentials';
       setError(msg === '{}' ? 'Invalid login credentials' : msg);

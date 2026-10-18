@@ -21,7 +21,7 @@ export default function OwnerLoginPage() {
 
     try {
       await AuthService.login(email, password, 'OWNER');
-      router.push('/owner');
+      window.location.href = '/owner';
     } catch (err: any) {
       const msg = typeof err === 'string' ? err : err?.message ? String(err.message) : 'Invalid login credentials';
       setError(msg === '{}' ? 'Invalid login credentials' : msg);
